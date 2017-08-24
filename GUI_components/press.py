@@ -11,7 +11,8 @@ from scraper.scraper_1 import Press_Announcements
 
 color = ["#329fea", "#cc93e8"]
 
-def Press_GUI(frame):
+def Press_GUI(canvas):
+    frame = tk.Frame(canvas)
 
     parse_ctrl = Press_Announcements()
     parse_ctrl.parse()
@@ -19,10 +20,11 @@ def Press_GUI(frame):
     body_cnt = len(parse_ctrl.total_data)
 
     mainlabelframe = tk.LabelFrame(frame, text="Press Announcements")
+    mainlabelframe.pack()
     mainlabelframe.configure(bg="#4f617b", fg="#e26306", font=('courier', 15, 'bold'),
                          relief="sunken", labelanchor="n")
     # labelframe.grid(row=i, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
-    mainlabelframe.pack()
+
     labelframes = []
     k = 0
     for i in range(body_cnt):
@@ -39,6 +41,8 @@ def Press_GUI(frame):
             k += 1
 
     print('Press GUI is made!')
+    frame.update_idletasks()
+    return frame
 
 def label_list(labelframes, date, content, i, ind):
     frame = tk.Frame(labelframes[i])
@@ -47,7 +51,7 @@ def label_list(labelframes, date, content, i, ind):
 
     labelVariable_date = tk.StringVar()
     label_date = tk.Label(frame, textvariable=labelVariable_date,
-                           width = 50, wraplength=350,
+                           width = 70, wraplength=490,
                            anchor="nw", justify="left",
                            fg="black", bg=color[ind % 2])
     label_date.grid(column=0, row=ind, columnspan = 4, sticky="W",
@@ -57,7 +61,7 @@ def label_list(labelframes, date, content, i, ind):
 
     labelVariable_content = tk.StringVar()
     label_content = tk.Label(frame, textvariable=labelVariable_content,
-                          width = 70, wraplength=490,
+                          width = 90, wraplength=630,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
     label_content.grid(column=9, row=ind, columnspan = 50, sticky="W",

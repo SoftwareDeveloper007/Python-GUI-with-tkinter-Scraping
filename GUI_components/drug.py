@@ -11,15 +11,18 @@ from scraper.scraper_1 import Drug_Recalls
 
 color = ["#329fea", "#cc93e8"]
     
-def Drug_GUI(frame):
+def Drug_GUI(canvas):
+    frame = tk.Frame(canvas)
+    frame.pack()
     parse_ctrl = Drug_Recalls()
     parse_ctrl.parse()
 
     labelframe = tk.LabelFrame(frame, text="Drug Store")
+    labelframe.pack()
     labelframe.configure(bg="#4f617b", fg="#e26306", font=('courier', 15, 'bold'),
                          relief="sunken", labelanchor="n")
     # labelframe.grid(row=i, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
-    labelframe.pack()
+
 
     i = 0
     label_list(labelframe, "Date", "Brand Name", "Production Description", "Reason/Problem", "Company", i)
@@ -30,6 +33,9 @@ def Drug_GUI(frame):
         i += 1
 
     print('Drug GUI is made!')
+
+    frame.update_idletasks()
+    return frame
 
 def label_list(labelframe, date, brand, desc, problem, company, ind):
     frame = tk.Frame(labelframe)
@@ -50,7 +56,7 @@ def label_list(labelframe, date, brand, desc, problem, company, ind):
     ''' Brand '''
     labelVariable_brand = tk.StringVar()
     label_brand = tk.Label(frame, textvariable=labelVariable_brand,
-                          width = 10, wraplength=70,
+                          width = 20, wraplength=140,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
     label_brand.grid(column=2, row=ind, columnspan = 1, sticky="W",
@@ -80,7 +86,7 @@ def label_list(labelframe, date, brand, desc, problem, company, ind):
     ''' Company '''
     labelVariable_company = tk.StringVar()
     label_company = tk.Label(frame, textvariable=labelVariable_company,
-                          width = 10, wraplength=70,
+                          width = 20, wraplength=140,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
     label_company.grid(column=23, row=ind, columnspan = 2, sticky="W",

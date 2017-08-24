@@ -12,8 +12,9 @@ from scraper.scraper_2 import scraper_2
 
 color = ["#329fea", "#cc93e8"]
 
-def Maude_GUI(frame):
-
+def Maude_GUI(canvas):
+    frame = tk.Frame(canvas)
+    frame.pack()
     scraper = scraper_2()
     scraper.search_companies()
     date_received = scraper.date_received
@@ -23,9 +24,8 @@ def Maude_GUI(frame):
     report_key = scraper.report_key
 
     statement_frame = tk.LabelFrame(frame)
-    statement_frame.configure(bg="black", fg="white", relief="flat", labelanchor="n")
     statement_frame.pack()
-
+    statement_frame.configure(bg="black", fg="white", relief="flat", labelanchor="n")
     statement = tk.Label(statement_frame, text="Reports may be obtained by looking up "
                                                          "report key on the MAUDE database here. Click",
                               wraplength=1000, justify="left")
@@ -47,8 +47,6 @@ def Maude_GUI(frame):
     url.bind("<Enter>", blue_text)
     url.bind("<Leave>", white_text)
 
-
-
     statement.pack(side="left")
     url.pack(side="left")
 
@@ -60,12 +58,14 @@ def Maude_GUI(frame):
     label_list(labelframe, 'Date Received', 'Company Name', 'Brand Name', 'Generic Name', 'Report Key', 0,
                     "#ffc233", ('Times', 10, 'bold'))
     total_cnt = len(scraper.date_received)
-    #print(total_cnt)
+    print(total_cnt)
     for i in range(total_cnt):
         label_list(labelframe, date_received[i], company_name[i], brand_name[i],
                         generic_name[i], report_key[i], i + 1)
 
     print('Maude GUI is made!')
+    #frame.update_idletasks()
+    return frame
 
 def label_list(labelframe, date_received, company_name, brand_name, generic_name, report_key, ind,
                foreground="black", fnt=('Times', 10, 'normal')):
