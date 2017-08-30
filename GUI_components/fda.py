@@ -11,23 +11,18 @@ from scraper.scraper_1 import FDA_MedWatch
 
 color = ["#329fea", "#cc93e8"]
 
-class FDA_MedWatch_GUI():
-    def __init__(self, canvas):
-        parse_ctrl = FDA_MedWatch()
-        parse_ctrl.parse()
-
-        self.total_cnt = len(parse_ctrl.dates)
-        self.links = parse_ctrl.dates
-        self.titles = parse_ctrl.titles
-        self.descs = parse_ctrl.descs
-        self.dates = parse_ctrl.dates
-
-        self. = tk.Frame(canvas)
-        self.frame.pack()
-
 
 def FDA_MedWatch_GUI(canvas):
+    frame = tk.Frame(canvas)
+    frame.pack()
+    parse_ctrl = FDA_MedWatch()
+    parse_ctrl.parse()
 
+    total_cnt = len(parse_ctrl.dates)
+    links = parse_ctrl.dates
+    titles = parse_ctrl.titles
+    descs = parse_ctrl.descs
+    dates = parse_ctrl.dates
 
     labelframe = tk.LabelFrame(frame, text=" FDA MedWatch ")
     labelframe.pack()

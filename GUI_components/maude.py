@@ -75,7 +75,7 @@ def label_list(labelframe, date_received, company_name, brand_name, generic_name
 
     labelVariable_date_received = tk.StringVar()
     label_date_received = tk.Label(frame, textvariable=labelVariable_date_received,
-                                   width=15, wraplength=120,
+                                   width=10, wraplength=70,
                                    anchor="nw", justify="left",
                                    fg=foreground, bg=color[ind % 2],
                                    font=fnt)
@@ -86,7 +86,7 @@ def label_list(labelframe, date_received, company_name, brand_name, generic_name
 
     labelVariable_company_name = tk.StringVar()
     label_company_name = tk.Label(frame, textvariable=labelVariable_company_name,
-                                  width=30, wraplength=240,
+                                  width=35, wraplength=245,
                                   anchor="nw", justify="left",
                                   fg=foreground, bg=color[ind % 2],
                                   font=fnt)
@@ -96,7 +96,7 @@ def label_list(labelframe, date_received, company_name, brand_name, generic_name
 
     labelVariable_brand_name = tk.StringVar()
     label_brand_name = tk.Label(frame, textvariable=labelVariable_brand_name,
-                                width=40, wraplength=360,
+                                width=40, wraplength=280,
                                 anchor="nw", justify="left",
                                 fg=foreground, bg=color[ind % 2],
                                 font=fnt)
@@ -106,7 +106,7 @@ def label_list(labelframe, date_received, company_name, brand_name, generic_name
 
     labelVariable_generic_name = tk.StringVar()
     label_generic_name = tk.Label(frame, textvariable=labelVariable_generic_name,
-                                  width=40, wraplength=360,
+                                  width=40, wraplength=280,
                                   anchor="nw", justify="left",
                                   fg=foreground, bg=color[ind % 2],
                                   font=fnt)
@@ -116,7 +116,7 @@ def label_list(labelframe, date_received, company_name, brand_name, generic_name
 
     labelVariable_report_key = tk.StringVar()
     label_report_key = tk.Label(frame, textvariable=labelVariable_report_key,
-                                width=10, wraplength=80,
+                                width=10, wraplength=70,
                                 anchor="nw", justify="left",
                                 fg=foreground, bg=color[ind % 2],
                                 font=fnt)
