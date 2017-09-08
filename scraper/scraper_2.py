@@ -31,7 +31,7 @@ class scraper_2():
                     search_word = ' '.join(search_words[:i+1])
                     #print(search_word)
 
-                    stop_words = ['.', ',', '-', ';', '(', ')', '&', '  ']
+                    stop_words = ['.', ',', ';', '(', ')', '&', '  ']
                     for stop_word in stop_words:
                         while(stop_word in manufacturer_d_address):
                             manufacturer_d_address = manufacturer_d_address.replace(stop_word, ' ')

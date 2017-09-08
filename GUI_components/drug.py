@@ -9,7 +9,7 @@ import ttk
 import time
 from scraper.scraper_1 import Drug_Recalls
 
-color = ["#329fea", "#cc93e8"]
+color = ["#efefe9", "#e4e4dd"]
     
 def Drug_GUI(canvas):
     frame = tk.Frame(canvas)
@@ -19,7 +19,7 @@ def Drug_GUI(canvas):
 
     labelframe = tk.LabelFrame(frame, text="Drug Store")
     labelframe.pack()
-    labelframe.configure(bg="#4f617b", fg="#e26306", font=('courier', 15, 'bold'),
+    labelframe.configure(bg="white", fg="#e26306", font=('courier', 15, 'bold'),
                          relief="sunken", labelanchor="n")
     # labelframe.grid(row=i, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
 

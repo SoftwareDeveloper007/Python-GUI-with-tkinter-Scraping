@@ -10,7 +10,7 @@ import time
 import webbrowser
 from scraper.scraper_2 import scraper_2
 
-color = ["#329fea", "#cc93e8"]
+color = ["#efefe9", "#e4e4dd"]
 
 def Maude_GUI(canvas):
     frame = tk.Frame(canvas)
@@ -51,12 +51,12 @@ def Maude_GUI(canvas):
     url.pack(side="left")
 
     labelframe = tk.LabelFrame(frame, text=" MAUDE ")
-    labelframe.configure(bg="#4f617b", fg="#e26306", font=('courier', 15, 'bold'),
+    labelframe.configure(bg="white", fg="#e26306", font=('courier', 15, 'bold'),
                               relief="sunken", labelanchor="n")
     # labelframe.grid(row=0, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
     labelframe.pack()
     label_list(labelframe, 'Date Received', 'Company Name', 'Brand Name', 'Generic Name', 'Report Key', 0,
-                    "#ffc233", ('Times', 10, 'bold'))
+                    "black", ('Times', 10, 'bold'))
     total_cnt = len(scraper.date_received)
     print(total_cnt)
     for i in range(total_cnt):

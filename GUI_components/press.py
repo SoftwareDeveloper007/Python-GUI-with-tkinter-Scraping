@@ -9,7 +9,7 @@ import ttk
 import time
 from scraper.scraper_1 import Press_Announcements
 
-color = ["#329fea", "#cc93e8"]
+color = ["#efefe9", "#e4e4dd"]
 
 def Press_GUI(canvas):
     frame = tk.Frame(canvas)
@@ -21,7 +21,7 @@ def Press_GUI(canvas):
 
     mainlabelframe = tk.LabelFrame(frame, text="Press Announcements")
     mainlabelframe.pack()
-    mainlabelframe.configure(bg="#4f617b", fg="#e26306", font=('courier', 15, 'bold'),
+    mainlabelframe.configure(bg="white", fg="#e26306", font=('courier', 15, 'bold'),
                          relief="sunken", labelanchor="n")
     # labelframe.grid(row=i, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
 
@@ -29,8 +29,8 @@ def Press_GUI(canvas):
     k = 0
     for i in range(body_cnt):
         labelframe = tk.LabelFrame(mainlabelframe, text=parse_ctrl.month_name[i])
-        labelframe.configure(bg="#4f617b", fg="#d0dc2a", font=('courier', 12, 'bold'),
-                              relief="sunken", labelanchor="n")
+        labelframe.configure(bg="white", fg="#3233ea", font=('courier', 12, 'bold', 'italic'),
+                              relief="flat", labelanchor="n")
         #labelframe.grid(row=i, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
         labelframe.pack()
         labelframes.append(labelframe)

@@ -26,7 +26,7 @@ def FDA_MedWatch_GUI(canvas):
 
     labelframe = tk.LabelFrame(frame, text=" FDA MedWatch ")
     labelframe.pack()
-    labelframe.configure(bg="#4f617b", fg="#e26306", font=('courier', 15, 'bold'),
+    labelframe.configure(bg="white", fg="#e26306", font=('courier', 15, 'bold'),
                          relief="sunken", labelanchor="n")
     # labelframe.grid(row=0, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
 
