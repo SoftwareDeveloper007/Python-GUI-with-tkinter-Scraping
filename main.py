@@ -12,6 +12,7 @@ from GUI_components.fda import *
 from GUI_components.press import *
 from GUI_components.drug import *
 from GUI_components.maude import *
+from GUI_components.cms import *
 
 class main_GUI(tk.Tk):
     def __init__(self, parent):
@@ -26,28 +27,34 @@ class main_GUI(tk.Tk):
         self.nb.bind('<1>', self.on_focus_tab)
 
         fda = Canvas(self.nb,relief=tk.SOLID, background="black")
-        fda.pack(fill=BOTH, expand=True)
+        #fda.pack(fill=BOTH, expand=True)
         press = Canvas(self.nb,relief=tk.SOLID, background="black")
-        press.pack(fill=BOTH, expand=True)
+        #press.pack(fill=BOTH, expand=True)
         drug = Canvas(self.nb,relief=tk.SOLID, background="black")
-        drug.pack(fill=BOTH, expand=True)
+        #drug.pack(fill=BOTH, expand=True)
         maude = Canvas(self.nb,relief=tk.SOLID, background="black")
-        maude.pack(fill=BOTH, expand=True)
+        #maude.pack(fill=BOTH, expand=True)
+
+        cms = Canvas(self.nb, relief=tk.SOLID, background="black")
+        # cms.pack(fill=BOTH, expand=True)
 
         self.nb.add(fda, text='FDA MedWatch')
         self.nb.add(press, text='Press Announcement')
         self.nb.add(drug, text='Drug Recalls')
         self.nb.add(maude, text='MAUDE')
+        self.nb.add(maude, text='CMS')
 
         self.fda_canvas = scrollbar_add(fda)
         self.press_canvas = scrollbar_add(press)
         self.drug_canvas = scrollbar_add(drug)
         self.maude_canvas = scrollbar_add(maude)
+        self.cms_canvas = scrollbar_add(cms)
 
         self.fda_frame = FDA_MedWatch_GUI(self.fda_canvas)
         self.press_frame = Press_GUI(self.press_canvas)
         self.drug_frame = Drug_GUI(self.drug_canvas)
         self.maude_frame = Maude_GUI(self.maude_canvas)
+        self.cms_frame = CMS_GUI(self.cms_canvas)
 
         self.fda_canvas.create_window(0, 0, anchor=CENTER, window=self.fda_frame)
         self.fda_canvas.config(scrollregion=self.fda_canvas.bbox("all"))
@@ -60,6 +67,14 @@ class main_GUI(tk.Tk):
 
         self.maude_canvas.create_window(0, 0, anchor=NW, window=self.maude_frame)
         self.maude_canvas.config(scrollregion=self.maude_canvas.bbox("all"))
+
+        self.cms_canvas.create_window(0, 0, anchor=NW, window=self.cms_frame)
+        self.cms_canvas.config(scrollregion=self.cms_canvas.bbox("all"))
+
+        press.pack(fill=BOTH, expand=True)
+        drug.pack(fill=BOTH, expand=True)
+        maude.pack(fill=BOTH, expand=True)
+        cms.pack(fill=BOTH, expand=True)
 
     def on_focus_tab(self, event):
         index = event.widget.index('@%d,%d' % (event.x, event.y))

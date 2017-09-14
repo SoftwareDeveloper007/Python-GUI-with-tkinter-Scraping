@@ -75,6 +75,7 @@ class CMS_Scraper():
 
         #print(self.output_data)
         #print(self.urls)
+        driver.quit()
 
 if __name__ == '__main__':
     app = CMS_Scraper()
