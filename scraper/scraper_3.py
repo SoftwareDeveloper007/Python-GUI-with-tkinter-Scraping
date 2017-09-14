@@ -73,10 +73,8 @@ class CMS_Scraper():
 
             self.output_data.append(row)
 
-        print(self.output_data)
-
-
-
+        #print(self.output_data)
+        #print(self.urls)
 
 if __name__ == '__main__':
     app = CMS_Scraper()
