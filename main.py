@@ -27,22 +27,21 @@ class main_GUI(tk.Tk):
         self.nb.bind('<1>', self.on_focus_tab)
 
         fda = Canvas(self.nb,relief=tk.SOLID, background="black")
-        #fda.pack(fill=BOTH, expand=True)
+        fda.pack(fill=BOTH, expand=True)
         press = Canvas(self.nb,relief=tk.SOLID, background="black")
-        #press.pack(fill=BOTH, expand=True)
+        press.pack(fill=BOTH, expand=True)
         drug = Canvas(self.nb,relief=tk.SOLID, background="black")
-        #drug.pack(fill=BOTH, expand=True)
+        drug.pack(fill=BOTH, expand=True)
         maude = Canvas(self.nb,relief=tk.SOLID, background="black")
-        #maude.pack(fill=BOTH, expand=True)
-
+        maude.pack(fill=BOTH, expand=True)
         cms = Canvas(self.nb, relief=tk.SOLID, background="black")
-        # cms.pack(fill=BOTH, expand=True)
+        cms.pack(fill=BOTH, expand=True)
 
         self.nb.add(fda, text='FDA MedWatch')
         self.nb.add(press, text='Press Announcement')
         self.nb.add(drug, text='Drug Recalls')
         self.nb.add(maude, text='MAUDE')
-        self.nb.add(maude, text='CMS')
+        self.nb.add(cms, text='CMS')
 
         self.fda_canvas = scrollbar_add(fda)
         self.press_canvas = scrollbar_add(press)
@@ -71,10 +70,11 @@ class main_GUI(tk.Tk):
         self.cms_canvas.create_window(0, 0, anchor=NW, window=self.cms_frame)
         self.cms_canvas.config(scrollregion=self.cms_canvas.bbox("all"))
 
-        press.pack(fill=BOTH, expand=True)
-        drug.pack(fill=BOTH, expand=True)
-        maude.pack(fill=BOTH, expand=True)
-        cms.pack(fill=BOTH, expand=True)
+        #fda.pack(fill=BOTH, expand=True)
+        #press.pack(fill=BOTH, expand=True)
+        #drug.pack(fill=BOTH, expand=True)
+        #maude.pack(fill=BOTH, expand=True)
+        #cms.pack(fill=BOTH, expand=True)
 
     def on_focus_tab(self, event):
         index = event.widget.index('@%d,%d' % (event.x, event.y))
@@ -97,12 +97,19 @@ class main_GUI(tk.Tk):
             self.bind("<Up>", lambda x: self.drug_canvas.yview_scroll(-3, 'units'))  # bind "Up" to scroll up
             # bind the mousewheel to scroll up/down
             self.bind("<MouseWheel>", lambda x: self.drug_canvas.yview_scroll(int(-1 * (x.delta / 40)), "units"))
-        else:
+        elif index is 3:
             self.maude_frame.bind("<Configure>", lambda x: self.maude_canvas.configure(scrollregion=self.maude_canvas.bbox("all")))
             self.bind("<Down>", lambda x: self.maude_canvas.yview_scroll(3, 'units'))  # bind "Down" to scroll down
             self.bind("<Up>", lambda x: self.maude_canvas.yview_scroll(-3, 'units'))  # bind "Up" to scroll up
             # bind the mousewheel to scroll up/down
             self.bind("<MouseWheel>", lambda x: self.maude_canvas.yview_scroll(int(-1 * (x.delta / 40)), "units"))
+
+        else:
+            self.cms_frame.bind("<Configure>", lambda x: self.cms_canvas.configure(scrollregion=self.cms_canvas.bbox("all")))
+            self.bind("<Down>", lambda x: self.cms_canvas.yview_scroll(3, 'units'))  # bind "Down" to scroll down
+            self.bind("<Up>", lambda x: self.cms_canvas.yview_scroll(-3, 'units'))  # bind "Up" to scroll up
+            # bind the mousewheel to scroll up/down
+            self.bind("<MouseWheel>", lambda x: self.cms_canvas.yview_scroll(int(-1 * (x.delta / 40)), "units"))
 
 
 def scrollbar_add(frame):

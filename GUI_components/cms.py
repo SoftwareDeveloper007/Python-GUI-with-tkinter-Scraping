@@ -25,11 +25,15 @@ def CMS_GUI(canvas):
 
     label_list(labelframe, "PROPOSED/DRAFT LCD ID#", "PROPOSED/DRAFT LCD TITLE", "CONTRACTOR NAME",
                "PROPOSED/DRAFT STATUS", "COMMENT PERIOD START DATE", "COMMENT PERIOD END DATE",
-               "DATE OF RELEASE FOR NOTICE", 0, "black", ('Times', 10, 'bold'))
+               "DATE OF RELEASE FOR NOTICE", '', 0, "black", ('Times', 10, 'bold'))
 
     for i, line in enumerate(scraper.output_data):
         label_list(labelframe, line[0], line[1], line[2], line[3], line[4], line[5], line[6], scraper.urls[i], i+1)
 
+    print('CMS GUI is made!')
+
+    frame.update_idletasks()
+    return frame
 
 def label_list(labelframe, ID, title, contractor, status, start_date, end_date, release_date, url, ind,
                foreground="black", fnt=('Times', 10, 'normal')):
@@ -58,14 +62,21 @@ def label_list(labelframe, ID, title, contractor, status, start_date, end_date, 
     def white_text(event=None):
         label_ID.config(fg="white")
 
-    label_ID.bind("<Button-1>", open_url)
-    label_ID.bind("<Enter>", blue_text)
-    label_ID.bind("<Leave>", white_text)
+    def black_text(event=None):
+        label_ID.config(fg="black")
+
+    def green_text(event=None):
+        label_ID.config(fg="green")
+
+    if url is not '':
+        label_ID.bind("<Button-1>", open_url)
+        label_ID.bind("<Enter>", blue_text)
+        label_ID.bind("<Leave>", black_text)
 
 
     labelVariable_title = tk.StringVar()
     label_title = tk.Label(frame, textvariable=labelVariable_title,
-                                  width=35, wraplength=245,
+                                  width=50, wraplength=350,
                                   anchor="nw", justify="left",
                                   fg=foreground, bg=color[ind % 2],
                                   font=fnt)
@@ -75,7 +86,7 @@ def label_list(labelframe, ID, title, contractor, status, start_date, end_date, 
 
     labelVariable_contractor = tk.StringVar()
     label_contractor = tk.Label(frame, textvariable=labelVariable_contractor,
-                                width=40, wraplength=280,
+                                width=15, wraplength=105,
                                 anchor="nw", justify="left",
                                 fg=foreground, bg=color[ind % 2],
                                 font=fnt)
@@ -85,7 +96,7 @@ def label_list(labelframe, ID, title, contractor, status, start_date, end_date, 
 
     labelVariable_status = tk.StringVar()
     label_status = tk.Label(frame, textvariable=labelVariable_status,
-                                  width=40, wraplength=280,
+                                  width=15, wraplength=105,
                                   anchor="nw", justify="left",
                                   fg=foreground, bg=color[ind % 2],
                                   font=fnt)
@@ -95,7 +106,7 @@ def label_list(labelframe, ID, title, contractor, status, start_date, end_date, 
 
     labelVariable_start_date = tk.StringVar()
     label_start_date = tk.Label(frame, textvariable=labelVariable_start_date,
-                                width=10, wraplength=70,
+                                width=15, wraplength=105,
                                 anchor="nw", justify="left",
                                 fg=foreground, bg=color[ind % 2],
                                 font=fnt)
@@ -105,7 +116,7 @@ def label_list(labelframe, ID, title, contractor, status, start_date, end_date, 
 
     labelVariable_end_date = tk.StringVar()
     label_end_date = tk.Label(frame, textvariable=labelVariable_end_date,
-                                width=10, wraplength=70,
+                                width=15, wraplength=105,
                                 anchor="nw", justify="left",
                                 fg=foreground, bg=color[ind % 2],
                                 font=fnt)
@@ -115,7 +126,7 @@ def label_list(labelframe, ID, title, contractor, status, start_date, end_date, 
 
     labelVariable_release_date = tk.StringVar()
     label_release_date = tk.Label(frame, textvariable=labelVariable_release_date,
-                              width=10, wraplength=70,
+                              width=15, wraplength=105,
                               anchor="nw", justify="left",
                               fg=foreground, bg=color[ind % 2],
                               font=fnt)
