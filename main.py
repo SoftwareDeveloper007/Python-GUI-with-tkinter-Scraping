@@ -78,7 +78,7 @@ class main_GUI(tk.Tk):
 
     def on_focus_tab(self, event):
         index = event.widget.index('@%d,%d' % (event.x, event.y))
-        print(index)
+        #print(index)
         if index is 0:
             self.fda_frame.bind("<Configure>", lambda x: self.fda_canvas.configure(scrollregion=self.fda_canvas.bbox("all")))
             self.bind("<Down>", lambda x: self.fda_canvas.yview_scroll(3, 'units'))  # bind "Down" to scroll down

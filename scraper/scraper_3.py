@@ -30,7 +30,7 @@ class CMS_Scraper():
         driver.get(self.start_url)
 
         def page_loading(num_tries = 5):
-            print(num_tries)
+            print(num_tries, 'th try to load web page')
             try:
                 WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, "table#ctl00_ctl00_ctl00_CMSGMainContentPlaceHolder"
@@ -59,7 +59,7 @@ class CMS_Scraper():
         time.sleep(10)
         table = driver.find_element_by_css_selector('table#ctl00_ctl00_ctl00_CMSGMainContentPlaceHolder_ToolContentPlaceHolder_MCDContentPlaceHolder_DraftLCDReport1_LCDGridView')
         trs = table.find_elements_by_tag_name('tr')
-        print(len(trs))
+        print(len(trs), 'rows found')
 
         for i, tr in enumerate(trs):
             if i in [0,1, len(trs)-1]:
