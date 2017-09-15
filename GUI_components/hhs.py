@@ -17,6 +17,7 @@ def HHS_GUI(canvas):
     frame = tk.Frame(canvas)
     frame.pack()
     scraper = HHS_Scraper()
+    scraper.urlGeneration()
     scraper.startScraping()
 
     labelframe = tk.LabelFrame(frame, text=" Federal Register - HHS ")
