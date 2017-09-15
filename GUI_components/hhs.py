@@ -52,7 +52,7 @@ def label_list(labelframe, date, agency, title, description, ind, foreground="bl
     labelVariable_date.set(date)
 
     labelVariable_agency = tk.StringVar()
-    label_agency = tk.Label(agency, textvariable=labelVariable_agency,
+    label_agency = tk.Label(frame, textvariable=labelVariable_agency,
                             width=50, wraplength=350,
                             anchor="nw", justify="left",
                             fg=foreground, bg=color[ind % 2],
