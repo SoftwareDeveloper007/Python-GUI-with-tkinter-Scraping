@@ -30,12 +30,12 @@ class HHS_Scraper():
         self.base_url = 'https://www.federalregister.gov/documents/search?conditions%5Bagencies%5D%5B%5D=health-and-human' \
                         '-services-department&conditions%5Bpublication_date%5D%5Bgte%5D={0}%2F{1}%2F{2}'
         self.output_data = []
+        self.urls = []
 
     def urlGeneration(self):
         curDate = datetime.now() - timedelta(days=10)
         curDateStr = str(curDate.date()).split('-')
         self.base_url = self.base_url.format(curDateStr[1], curDateStr[2], curDateStr[0])
-        self.urls = []
 
         for i in range(1, 100):
             url = self.base_url + '&page={0}'.format(i)
@@ -74,7 +74,7 @@ class HHS_Scraper():
 
             if 'No documents were found' in soup.text:
                 break
-        print(len(self.output_data))
+
 
 
 
