@@ -112,20 +112,19 @@ class main_GUI(tk.Tk):
             self.bind("<Up>", lambda x: self.maude_canvas.yview_scroll(-3, 'units'))  # bind "Up" to scroll up
             # bind the mousewheel to scroll up/down
             self.bind("<MouseWheel>", lambda x: self.maude_canvas.yview_scroll(int(-1 * (x.delta / 40)), "units"))
-
         elif index is 4:
+            self.cms_frame.bind("<Configure>", lambda x: self.cms_canvas.configure(scrollregion=self.cms_canvas.bbox("all")))
+            self.bind("<Down>", lambda x: self.cms_canvas.yview_scroll(3, 'units'))  # bind "Down" to scroll down
+            self.bind("<Up>", lambda x: self.cms_canvas.yview_scroll(-3, 'units'))  # bind "Up" to scroll up
+            # bind the mousewheel to scroll up/down
+            self.bind("<MouseWheel>", lambda x: self.cms_canvas.yview_scroll(int(-1 * (x.delta / 40)), "units"))
+        else:
             self.hhs_frame.bind("<Configure>",
                                 lambda x: self.hhs_canvas.configure(scrollregion=self.hhs_canvas.bbox("all")))
             self.bind("<Down>", lambda x: self.hhs_canvas.yview_scroll(3, 'units'))  # bind "Down" to scroll down
             self.bind("<Up>", lambda x: self.hhs_canvas.yview_scroll(-3, 'units'))  # bind "Up" to scroll up
             # bind the mousewheel to scroll up/down
             self.bind("<MouseWheel>", lambda x: self.hhs_canvas.yview_scroll(int(-1 * (x.delta / 40)), "units"))
-        else:
-            self.cms_frame.bind("<Configure>", lambda x: self.cms_canvas.configure(scrollregion=self.cms_canvas.bbox("all")))
-            self.bind("<Down>", lambda x: self.cms_canvas.yview_scroll(3, 'units'))  # bind "Down" to scroll down
-            self.bind("<Up>", lambda x: self.cms_canvas.yview_scroll(-3, 'units'))  # bind "Up" to scroll up
-            # bind the mousewheel to scroll up/down
-            self.bind("<MouseWheel>", lambda x: self.cms_canvas.yview_scroll(int(-1 * (x.delta / 40)), "units"))
 
 
 def scrollbar_add(frame):
