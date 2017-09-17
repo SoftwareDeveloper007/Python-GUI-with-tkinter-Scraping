@@ -42,11 +42,11 @@ class AXIOS_Scraper():
             print(title)
             print(content)
 
-            self.output_data.append([date, title, content, author_name])
+            self.output_data.append([date, author_name, title, content])
 
         print(len(self.output_data))
 
-        driver.close()
+        driver.quit()
 
 if __name__ == '__main__':
     app = AXIOS_Scraper()
