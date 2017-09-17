@@ -40,7 +40,7 @@ def label_list(labelframe, date, author, title, content, ind, foreground="black"
 
     labelVariable_date = tk.StringVar()
     label_date = tk.Label(frame, textvariable=labelVariable_date,
-                          width=10, wraplength=70,
+                          width=7, wraplength=49,
                           anchor="nw", justify="left",
                           fg=foreground, bg=color[ind % 2],
                           font=fnt)
@@ -61,7 +61,7 @@ def label_list(labelframe, date, author, title, content, ind, foreground="black"
 
     labelVariable_title = tk.StringVar()
     label_title = tk.Label(frame, textvariable=labelVariable_title,
-                           width=50, wraplength=350,
+                           width=40, wraplength=280,
                            anchor="nw", justify="left",
                            fg=foreground, bg=color[ind % 2],
                            font=fnt)
@@ -71,7 +71,7 @@ def label_list(labelframe, date, author, title, content, ind, foreground="black"
 
     labelVariable_content = tk.StringVar()
     label_content = tk.Label(frame, textvariable=labelVariable_content,
-                                 width=78, wraplength=546,
+                                 width=91, wraplength=637,
                                  anchor="nw", justify="left",
                                  fg=foreground, bg=color[ind % 2],
                                  font=fnt)
