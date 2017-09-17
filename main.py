@@ -71,7 +71,7 @@ class main_GUI(tk.Tk):
         self.cms_frame = CMS_GUI(self.cms_canvas)
         self.hhs_frame = HHS_GUI(self.hhs_canvas)
         self.genome_frame = GENOME_GUI(self.genome_canvas)
-        self.axios_frame = axios_GUI(self.axios_canvas)
+        self.axios_frame = AXIOS_GUI(self.axios_canvas)
 
         self.fda_canvas.create_window(0, 0, anchor=CENTER, window=self.fda_frame)
         self.fda_canvas.config(scrollregion=self.fda_canvas.bbox("all"))
