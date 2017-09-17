@@ -55,7 +55,7 @@ def label_list(labelframe, title, desc, date, ind):
 
     labelVariable_desc = tk.StringVar()
     label_desc = tk.Label(frame, textvariable=labelVariable_desc,
-                          width=70, wraplength=490,
+                          width=75, wraplength=525,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
     label_desc.grid(column=9, row=ind, columnspan=50, sticky="W",

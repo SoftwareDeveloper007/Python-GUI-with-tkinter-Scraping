@@ -106,7 +106,7 @@ def label_list(labelframe, date_received, company_name, brand_name, generic_name
 
     labelVariable_generic_name = tk.StringVar()
     label_generic_name = tk.Label(frame, textvariable=labelVariable_generic_name,
-                                  width=40, wraplength=280,
+                                  width=45, wraplength=315,
                                   anchor="nw", justify="left",
                                   fg=foreground, bg=color[ind % 2],
                                   font=fnt)

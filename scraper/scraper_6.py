@@ -15,8 +15,8 @@ class AXIOS_Scraper():
     def startScraping(self):
 
         if platform.system() is 'Windows':
-            driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
-            #driver = webdriver.Chrome()
+            #driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+            driver = webdriver.Chrome()
         else:
             driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver')
 
@@ -31,9 +31,19 @@ class AXIOS_Scraper():
         for i, post in enumerate(posts):
             if i == 15:
                 break
-            author = post.find_element_by_css_selector('div.author-avatar')
-            author_name = author.find_elements_by_tag_name('li')[0].text.strip()
-            date = author.find_elements_by_tag_name('li')[1].text.strip()
+            author = post.find_element_by_css_selector('div.author-avatar').find_elements_by_tag_name('li')
+
+            if len(author) > 2:
+                tmp = []
+                for elm in author[:-1]:
+                    tmp.append(elm.text.strip())
+                author_name = ','.join(tmp)
+
+            else:
+                author_name = author[0].text.strip()
+
+            date = author[-1].text.strip()
+
             title = post.find_element_by_css_selector('h2').text.strip()
             content = post.find_element_by_css_selector('div.widget__body').text.strip()
 

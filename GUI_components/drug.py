@@ -66,7 +66,7 @@ def label_list(labelframe, date, brand, desc, problem, company, ind):
     ''' Description '''
     labelVariable_desc = tk.StringVar()
     label_desc = tk.Label(frame, textvariable=labelVariable_desc,
-                          width = 50, wraplength=350,
+                          width = 55, wraplength=385,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
     label_desc.grid(column=4, row=ind, columnspan = 10, sticky="W",
@@ -76,7 +76,7 @@ def label_list(labelframe, date, brand, desc, problem, company, ind):
     ''' Problem '''
     labelVariable_problem = tk.StringVar()
     label_problem = tk.Label(frame, textvariable=labelVariable_problem,
-                          width = 40, wraplength=280,
+                          width = 45, wraplength=315,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
     label_problem.grid(column=15, row=ind, columnspan = 7, sticky="W",

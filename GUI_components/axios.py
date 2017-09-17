@@ -16,7 +16,6 @@ def AXIOS_GUI(canvas):
     frame = tk.Frame(canvas)
     frame.pack()
     scraper = AXIOS_Scraper()
-    scraper.urlGeneration()
     scraper.startScraping()
 
     labelframe = tk.LabelFrame(frame, text=" AXIOS - Health Care ")
@@ -27,7 +26,7 @@ def AXIOS_GUI(canvas):
     label_list(labelframe, "Date", "Author", "Title", "Content", 0, "black", ('Times', 10, 'bold'))
 
     for i, line in enumerate(scraper.output_data):
-        label_list(labelframe, line[2], line[1], line[0], line[3], i + 1)
+        label_list(labelframe, line[0], line[1], line[2], line[3], i + 1)
 
     print('AXIOS GUI is made!')
 
@@ -52,7 +51,7 @@ def label_list(labelframe, date, author, title, content, ind, foreground="black"
 
     labelVariable_author = tk.StringVar()
     label_author = tk.Label(frame, textvariable=labelVariable_author,
-                            width=35, wraplength=245,
+                            width=12, wraplength=84,
                             anchor="nw", justify="left",
                             fg=foreground, bg=color[ind % 2],
                             font=fnt)
@@ -72,7 +71,7 @@ def label_list(labelframe, date, author, title, content, ind, foreground="black"
 
     labelVariable_content = tk.StringVar()
     label_content = tk.Label(frame, textvariable=labelVariable_content,
-                                 width=55, wraplength=385,
+                                 width=78, wraplength=546,
                                  anchor="nw", justify="left",
                                  fg=foreground, bg=color[ind % 2],
                                  font=fnt)
