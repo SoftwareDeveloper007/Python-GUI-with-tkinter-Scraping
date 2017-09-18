@@ -20,8 +20,9 @@ class CMS_Scraper():
 
     def startScraping(self):
         if platform.system() is 'Windows':
-            driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+            #driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
             #driver = webdriver.Chrome()
+            driver = webdriver.PhantomJS(os.getcwd() + '/WebDriver/phantomjs.exe')
         else:
             driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver')
 

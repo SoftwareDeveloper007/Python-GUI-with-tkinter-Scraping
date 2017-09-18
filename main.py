@@ -53,7 +53,7 @@ class main_GUI(tk.Tk):
         self.nb.add(cms, text='CMS')
         self.nb.add(hhs, text='HHS')
         self.nb.add(genome, text='GENOME')
-        self.nb.add(axios, text='axios')
+        self.nb.add(axios, text='AXIOS')
 
         self.fda_canvas = scrollbar_add(fda)
         self.press_canvas = scrollbar_add(press)
