@@ -8,7 +8,7 @@ from tkinter import *
 import ttk
 import time
 import webbrowser
-from scraper.scraper_3 import CMS_Scraper
+from scraper.cms_scraper import CMS_Scraper
 
 color = ["#efefe9", "#e4e4dd"]
 

@@ -7,7 +7,7 @@ except:
 
 import ttk
 import time
-from scraper.scraper_1 import FDA_MedWatch
+from scraper.fda_scraper import FDA_MedWatch
 
 color = ["#efefe9", "#e4e4dd"]
 

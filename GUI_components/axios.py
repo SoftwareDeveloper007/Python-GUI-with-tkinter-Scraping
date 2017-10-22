@@ -8,7 +8,7 @@ from tkinter import *
 import ttk
 import time
 import webbrowser
-from scraper.scraper_6 import AXIOS_Scraper
+from scraper.axios_scraper import AXIOS_Scraper
 
 color = ["#efefe9", "#e4e4dd"]
 

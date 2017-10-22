@@ -8,7 +8,7 @@ from tkinter import *
 import ttk
 import time
 import webbrowser
-from scraper.scraper_4 import HHS_Scraper
+from scraper.hhs_scraper import HHS_Scraper
 
 color = ["#efefe9", "#e4e4dd"]
 

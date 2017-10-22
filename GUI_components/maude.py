@@ -8,14 +8,14 @@ from tkinter import *
 import ttk
 import time
 import webbrowser
-from scraper.scraper_2 import scraper_2
+from scraper.maude_scraper import MAUDE_Scraper
 
 color = ["#efefe9", "#e4e4dd"]
 
 def Maude_GUI(canvas):
     frame = tk.Frame(canvas)
     frame.pack()
-    scraper = scraper_2()
+    scraper = MAUDE_Scraper()
     scraper.search_companies()
     date_received = scraper.date_received
     company_name = scraper.company_name

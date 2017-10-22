@@ -7,7 +7,7 @@ except:
 
 import ttk
 import time
-from scraper.scraper_1 import Drug_Recalls
+from scraper.drug_scraper import Drug_Recalls
 
 color = ["#efefe9", "#e4e4dd"]
     

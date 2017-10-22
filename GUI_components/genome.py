@@ -8,7 +8,7 @@ from tkinter import *
 import ttk
 import time
 import webbrowser
-from scraper.scraper_5 import GENOME_Scraper
+from scraper.genome_scraper import GENOME_Scraper
 
 color = ["#efefe9", "#e4e4dd"]
 

@@ -7,7 +7,7 @@ except:
 
 import ttk
 import time
-from scraper.scraper_1 import Press_Announcements
+from scraper.press_scraper import Press_Announcements
 
 color = ["#efefe9", "#e4e4dd"]
 
