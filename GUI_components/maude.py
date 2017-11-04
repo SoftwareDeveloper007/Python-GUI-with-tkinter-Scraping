@@ -12,6 +12,7 @@ from scraper.maude_scraper import MAUDE_Scraper
 
 color = ["#efefe9", "#e4e4dd"]
 
+
 def Maude_GUI(canvas):
     frame = tk.Frame(canvas)
     frame.pack()
@@ -27,8 +28,8 @@ def Maude_GUI(canvas):
     statement_frame.pack()
     statement_frame.configure(bg="black", fg="white", relief="flat", labelanchor="n")
     statement = tk.Label(statement_frame, text="Reports may be obtained by looking up "
-                                                         "report key on the MAUDE database here. Click",
-                              wraplength=1000, justify="left")
+                                               "report key on the MAUDE database here. Click",
+                         wraplength=1000, justify="left")
     statement.config(bg="black", fg="white", font=('courier', 12, 'bold'))
 
     url = tk.Label(statement_frame, text='here')
@@ -52,76 +53,73 @@ def Maude_GUI(canvas):
 
     labelframe = tk.LabelFrame(frame, text=" MAUDE ")
     labelframe.configure(bg="white", fg="#e26306", font=('courier', 15, 'bold'),
-                              relief="sunken", labelanchor="n")
+                         relief="sunken", labelanchor="n")
     # labelframe.grid(row=0, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
     labelframe.pack()
-    label_list(labelframe, 'Date Received', 'Company Name', 'Brand Name', 'Generic Name', 'Report Key', 0,
-                    "black", ('Times', 10, 'bold'))
+    label_list_4(labelframe, 'Date Received', 'Company Name', 'Brand Name', 'Generic Name', 'Report Key', 0,
+               "black", ('Times', 10, 'bold'))
     total_cnt = len(scraper.date_received)
-    print(total_cnt)
     for i in range(total_cnt):
-        label_list(labelframe, date_received[i], company_name[i], brand_name[i],
-                        generic_name[i], report_key[i], i + 1)
+        label_list_4(labelframe, date_received[i], company_name[i], brand_name[i],
+                   generic_name[i], report_key[i], i + 1)
 
     print('Maude GUI is made!')
-    #frame.update_idletasks()
+    # frame.update_idletasks()
     return frame
 
-def label_list(labelframe, date_received, company_name, brand_name, generic_name, report_key, ind,
+def label_list_4(labelframe, data1, data2, data3, data4, data5, ind,
                foreground="black", fnt=('Times', 10, 'normal')):
     frame = tk.Frame(labelframe)
     frame.configure(background=color[ind % 2])
     frame.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_date_received = tk.StringVar()
-    label_date_received = tk.Label(frame, textvariable=labelVariable_date_received,
+    labelVariable_1 = tk.StringVar()
+    label_1 = tk.Label(frame, textvariable=labelVariable_1,
                                    width=10, wraplength=70,
                                    anchor="nw", justify="left",
                                    fg=foreground, bg=color[ind % 2],
                                    font=fnt)
-    label_date_received.grid(column=0, row=ind, columnspan=5, sticky="W",
+    label_1.grid(column=0, row=ind, sticky="W",
                              padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_date_received.set(date_received)
+    labelVariable_1.set(data1)
 
-    labelVariable_company_name = tk.StringVar()
-    label_company_name = tk.Label(frame, textvariable=labelVariable_company_name,
+    labelVariable_2 = tk.StringVar()
+    label_2 = tk.Label(frame, textvariable=labelVariable_2,
                                   width=35, wraplength=245,
                                   anchor="nw", justify="left",
                                   fg=foreground, bg=color[ind % 2],
                                   font=fnt)
-    label_company_name.grid(column=6, row=ind, columnspan=12, sticky="W",
+    label_2.grid(column=1, row=ind, sticky="W",
                             padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_company_name.set(company_name)
+    labelVariable_2.set(data2)
 
-    labelVariable_brand_name = tk.StringVar()
-    label_brand_name = tk.Label(frame, textvariable=labelVariable_brand_name,
+    labelVariable_3 = tk.StringVar()
+    label_3 = tk.Label(frame, textvariable=labelVariable_3,
                                 width=40, wraplength=280,
                                 anchor="nw", justify="left",
                                 fg=foreground, bg=color[ind % 2],
                                 font=fnt)
-    label_brand_name.grid(column=19, row=ind, columnspan=12, sticky="W",
+    label_3.grid(column=2, row=ind, sticky="W",
                           padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_brand_name.set(brand_name)
+    labelVariable_3.set(data3)
 
-    labelVariable_generic_name = tk.StringVar()
-    label_generic_name = tk.Label(frame, textvariable=labelVariable_generic_name,
+    labelVariable_4 = tk.StringVar()
+    label_4 = tk.Label(frame, textvariable=labelVariable_4,
                                   width=45, wraplength=315,
                                   anchor="nw", justify="left",
                                   fg=foreground, bg=color[ind % 2],
                                   font=fnt)
-    label_generic_name.grid(column=32, row=ind, columnspan=12, sticky="W",
+    label_4.grid(column=3, row=ind, sticky="W",
                             padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_generic_name.set(generic_name)
+    labelVariable_4.set(data4)
 
-    labelVariable_report_key = tk.StringVar()
-    label_report_key = tk.Label(frame, textvariable=labelVariable_report_key,
+    labelVariable_5 = tk.StringVar()
+    label_5 = tk.Label(frame, textvariable=labelVariable_5,
                                 width=10, wraplength=70,
                                 anchor="nw", justify="left",
                                 fg=foreground, bg=color[ind % 2],
                                 font=fnt)
-    label_report_key.grid(column=45, row=ind, columnspan=5, sticky="W",
+    label_5.grid(column=4, row=ind, sticky="W",
                           padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_report_key.set(report_key)
-
-
+    labelVariable_5.set(data5)

@@ -37,36 +37,36 @@ def Press_GUI(canvas):
 
         body_data = parse_ctrl.total_data[i]
         for line in body_data:
-            label_list(labelframes, line['date'], line['content'], i, k)
+            label_list_2(labelframes, line['date'], line['content'], i, k)
             k += 1
 
     print('Press GUI is made!')
     frame.update_idletasks()
     return frame
 
-def label_list(labelframes, date, content, i, ind):
+def label_list_2(labelframes, data1, data2, i, ind):
     frame = tk.Frame(labelframes[i])
     frame.configure(background=color[ind % 2])
     frame.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_date = tk.StringVar()
-    label_date = tk.Label(frame, textvariable=labelVariable_date,
+    labelVariable_1 = tk.StringVar()
+    label_1 = tk.Label(frame, textvariable=labelVariable_1,
                            width = 70, wraplength=490,
                            anchor="nw", justify="left",
                            fg="black", bg=color[ind % 2])
-    label_date.grid(column=0, row=ind, columnspan = 4, sticky="W",
+    label_1.grid(column=0, row=ind, sticky="W",
                      padx=3, pady=3, ipadx=3, ipady=3)
 
-    labelVariable_date.set(date)
+    labelVariable_1.set(data1)
 
-    labelVariable_content = tk.StringVar()
-    label_content = tk.Label(frame, textvariable=labelVariable_content,
+    labelVariable_2 = tk.StringVar()
+    label_2 = tk.Label(frame, textvariable=labelVariable_2,
                           width = 90, wraplength=630,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
-    label_content.grid(column=9, row=ind, columnspan = 50, sticky="W",
+    label_2.grid(column=1, row=ind, sticky="W",
                     padx=3, pady=3, ipadx=3, ipady=3)
-    labelVariable_content.set(content)
+    labelVariable_2.set(data2)
 
 
 

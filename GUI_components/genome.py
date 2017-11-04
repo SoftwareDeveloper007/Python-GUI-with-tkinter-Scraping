@@ -24,41 +24,40 @@ def GENOME_GUI(canvas):
                          relief="sunken", labelanchor="n")
     labelframe.pack()
 
-    label_list(labelframe, "Date", "Content", 0, "black", ('Times', 10, 'bold'))
+    label_list_7(labelframe, "Date", "Content", 0, "black", ('Times', 10, 'bold'))
 
     for i, line in enumerate(scraper.output_data):
-        label_list(labelframe, line[0], line[1], i + 1)
+        label_list_7(labelframe, line[0], line[1], i + 1)
 
     print('GENOME GUI is made!')
 
     frame.update_idletasks()
     return frame
 
-
-def label_list(labelframe, date, content, ind, foreground="black", fnt=('Times', 10, 'normal')):
+def label_list_7(labelframe, data1, data2, ind, foreground="black", fnt=('Times', 10, 'normal')):
     frame = tk.Frame(labelframe)
     frame.configure(background=color[ind % 2])
     frame.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_date = tk.StringVar()
-    label_date = tk.Label(frame, textvariable=labelVariable_date,
+    labelVariable_1 = tk.StringVar()
+    label_1 = tk.Label(frame, textvariable=labelVariable_1,
                           width=10, wraplength=70,
                           anchor="nw", justify="left",
                           fg=foreground, bg=color[ind % 2],
                           font=fnt)
-    label_date.grid(column=0, row=ind, columnspan=5, sticky="W",
+    label_1.grid(column=0, row=ind, sticky="W",
                     padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_date.set(date)
+    labelVariable_1.set(data1)
 
-    labelVariable_content = tk.StringVar()
-    label_content = tk.Label(frame, textvariable=labelVariable_content,
+    labelVariable_2 = tk.StringVar()
+    label_2 = tk.Label(frame, textvariable=labelVariable_2,
                             width=150, wraplength=1050,
                             anchor="nw", justify="left",
                             fg=foreground, bg=color[ind % 2],
                             font=fnt)
-    label_content.grid(column=6, row=ind, columnspan=12, sticky="W",
+    label_2.grid(column=1, row=ind, sticky="W",
                       padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_content.set(content)
+    labelVariable_2.set(data2)
 
 

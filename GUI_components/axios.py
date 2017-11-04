@@ -23,58 +23,58 @@ def AXIOS_GUI(canvas):
                          relief="sunken", labelanchor="n")
     labelframe.pack()
 
-    label_list(labelframe, "Date", "Author", "Title", "Content", 0, "black", ('Times', 10, 'bold'))
+    label_list_8(labelframe, "Date", "Author", "Title", "Content", 0, "black", ('Times', 10, 'bold'))
 
     for i, line in enumerate(scraper.output_data):
-        label_list(labelframe, line[0], line[1], line[2], line[3], i + 1)
+        label_list_8(labelframe, line[0], line[1], line[2], line[3], i + 1)
 
     print('AXIOS GUI is made!')
 
     frame.update_idletasks()
     return frame
 
-def label_list(labelframe, date, author, title, content, ind, foreground="black", fnt=('Times', 10, 'normal')):
+def label_list_8(labelframe, data1, data2, data3, data4, ind, foreground="black", fnt=('Times', 10, 'normal')):
     frame = tk.Frame(labelframe)
     frame.configure(background=color[ind % 2])
     frame.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_date = tk.StringVar()
-    label_date = tk.Label(frame, textvariable=labelVariable_date,
+    labelVariable_1 = tk.StringVar()
+    label_1 = tk.Label(frame, textvariable=labelVariable_1,
                           width=7, wraplength=49,
                           anchor="nw", justify="left",
                           fg=foreground, bg=color[ind % 2],
                           font=fnt)
-    label_date.grid(column=0, row=ind, columnspan=5, sticky="W",
+    label_1.grid(column=0, row=ind, sticky="W",
                     padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_date.set(date)
+    labelVariable_1.set(data1)
 
-    labelVariable_author = tk.StringVar()
-    label_author = tk.Label(frame, textvariable=labelVariable_author,
+    labelVariable_2 = tk.StringVar()
+    label_2 = tk.Label(frame, textvariable=labelVariable_2,
                             width=12, wraplength=84,
                             anchor="nw", justify="left",
                             fg=foreground, bg=color[ind % 2],
                             font=fnt)
-    label_author.grid(column=6, row=ind, columnspan=12, sticky="W",
+    label_2.grid(column=1, row=ind, sticky="W",
                       padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_author.set(author)
+    labelVariable_2.set(data2)
 
-    labelVariable_title = tk.StringVar()
-    label_title = tk.Label(frame, textvariable=labelVariable_title,
+    labelVariable_3 = tk.StringVar()
+    label_3 = tk.Label(frame, textvariable=labelVariable_3,
                            width=31, wraplength=217,
                            anchor="nw", justify="left",
                            fg=foreground, bg=color[ind % 2],
                            font=fnt)
-    label_title.grid(column=19, row=ind, columnspan=12, sticky="W",
+    label_3.grid(column=2, row=ind, sticky="W",
                      padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_title.set(title)
+    labelVariable_3.set(data3)
 
-    labelVariable_content = tk.StringVar()
-    label_content = tk.Label(frame, textvariable=labelVariable_content,
+    labelVariable_4 = tk.StringVar()
+    label_4 = tk.Label(frame, textvariable=labelVariable_4,
                                  width=100, wraplength=700,
                                  anchor="nw", justify="left",
                                  fg=foreground, bg=color[ind % 2],
                                  font=fnt)
-    label_content.grid(column=32, row=ind, columnspan=12, sticky="W",
+    label_4.grid(column=3, row=ind, sticky="W",
                            padx=5, pady=5, ipadx=5, ipady=5)
-    labelVariable_content.set(content)
+    labelVariable_4.set(data4)

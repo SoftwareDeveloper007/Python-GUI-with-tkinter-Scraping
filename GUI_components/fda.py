@@ -31,42 +31,42 @@ def FDA_MedWatch_GUI(canvas):
     # labelframe.grid(row=0, sticky='WE', padx=5, pady=15, ipadx=5, ipady=5)
 
     for i in range(total_cnt):
-        label_list(labelframe, titles[i], descs[i], dates[i], i)
+        label_list_1(labelframe, titles[i], descs[i], dates[i], i)
 
     print('FDA GUI is made!')
     frame.update_idletasks()
     return frame
 
 
-def label_list(labelframe, title, desc, date, ind):
+def label_list_1(labelframe, data1, data2, data3, ind):
     frame = tk.Frame(labelframe)
     frame.configure(background=color[ind % 2])
     frame.pack(padx=5, pady=5, ipadx=5, ipady=5)
 
-    labelVariable_title = tk.StringVar()
-    label_title = tk.Label(frame, textvariable=labelVariable_title,
+    labelVariable_1 = tk.StringVar()
+    label_1 = tk.Label(frame, textvariable=labelVariable_1,
                            width=70, wraplength=490,
                            anchor="nw", justify="left",
                            fg="black", bg=color[ind % 2])
-    label_title.grid(column=0, row=ind, columnspan=7, sticky="W",
+    label_1.grid(column=0, row=ind, sticky="W",
                      padx=3, pady=3, ipadx=3, ipady=3)
 
-    labelVariable_title.set(title)
+    labelVariable_1.set(data1)
 
-    labelVariable_desc = tk.StringVar()
-    label_desc = tk.Label(frame, textvariable=labelVariable_desc,
+    labelVariable_2 = tk.StringVar()
+    label_2 = tk.Label(frame, textvariable=labelVariable_2,
                           width=75, wraplength=525,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
-    label_desc.grid(column=9, row=ind, columnspan=50, sticky="W",
+    label_2.grid(column=1, row=ind, sticky="W",
                     padx=3, pady=3, ipadx=3, ipady=3)
-    labelVariable_desc.set(desc)
+    labelVariable_2.set(data2)
 
-    labelVariable_date = tk.StringVar()
-    label_date = tk.Label(frame, textvariable=labelVariable_date,
+    labelVariable_3 = tk.StringVar()
+    label_3 = tk.Label(frame, textvariable=labelVariable_3,
                           width=10, wraplength=80,
                           anchor="nw", justify="left",
                           fg="black", bg=color[ind % 2])
-    label_date.grid(column=61, row=ind, columnspan=5, sticky="W",
+    label_3.grid(column=2, row=ind, sticky="W",
                     padx=3, pady=3, ipadx=3, ipady=3)
-    labelVariable_date.set(date)
+    labelVariable_3.set(data3)
